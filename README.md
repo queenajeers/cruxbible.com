@@ -26,10 +26,19 @@ python3 -m http.server 8140
 
 Then open http://localhost:8140.
 
-## Fonts
+## Fonts and icon
 
-Nunito Sans (body) and Newsreader (headings), both from Google Fonts. The app uses Sentinel for scripture, which is
-licensed for the app only, so the site uses Newsreader in its place.
+The app's own, self-hosted (no Google Fonts request):
+
+- **Nunito Sans**, the very files the iOS app bundles, drawn a step lighter than each weight's name as the app draws
+  it.
+- **Zilla Slab** for the headings, in place of the app's **Sentinel**: Sentinel's licence covers the app, not the web,
+  and Zilla Slab is the closest free slab serif (same width, lining figures). Both fonts are SIL OFL; their licences
+  are in `assets/fonts/`.
+
+`python3 tools/fonts.py` rebuilds the WOFF2 files (needs fontTools and brotli); `python3 tools/icons.py` rebuilds the
+mark, the tab icon, the Apple touch icon and `favicon.ico` from the app's icon in Xcode
+(`Rebuke/Assets.xcassets/AppIcon.appiconset/icon.png`).
 
 ## Scripture
 
