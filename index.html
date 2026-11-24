@@ -39,7 +39,7 @@
       <a href="#features">Inside the app</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-green btn-sm" href="#get">Get Crux Bible</a>
+    <a class="btn btn-green btn-sm" href="#notify" data-notify="nav">Get Crux Bible</a>
   </div>
 </header>
 
@@ -52,9 +52,9 @@
       <h1>Meet God <span class="mark">before</span> you meet the world.</h1>
       <p class="lead">Crux Bible makes the Bible easy to understand, one clear visual lesson each morning, and keeps your distracting apps locked until you’ve spent time with Him.</p>
       <div class="cta-row">
-        <a class="btn btn-green" href="#get">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          Coming soon to iPhone
+        <a class="btn btn-green" href="#notify" data-notify="hero">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Notify me at launch
         </a>
         <a class="link-arrow" href="#how">See how it works <span aria-hidden="true">→</span></a>
       </div>
@@ -441,7 +441,7 @@
     <div class="faq-list">
       <details>
         <summary>When can I get Crux Bible?</summary>
-        <p>Crux Bible is coming soon to iPhone. We’re putting the finishing touches on the first lessons of the journey now.</p>
+        <p>Crux Bible is coming soon to iPhone. We’re putting the finishing touches on the first lessons of the journey now. <a href="#notify" data-notify="faq">Leave your email</a> and we’ll let you know the day it’s out.</p>
       </details>
       <details>
         <summary>How does the app lock work?</summary>
@@ -472,14 +472,43 @@
   <div class="wrap center">
     <h2 id="get-title" class="h-big">Start tomorrow<br>with <span class="mark">God</span>.</h2>
     <p class="sub">Let the first thing you read each day be His Word. Crux Bible is coming soon to iPhone.</p>
-    <span class="btn btn-sun" role="note">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      Coming soon to iPhone
-    </span>
+    <a class="btn btn-sun" href="#notify" data-notify="final">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Notify me at launch
+    </a>
   </div>
 </section>
 
 </main>
+
+<!-- Launch list: the "Notify me" buttons open this. Emails go to Cloud Firestore (see firebase/). -->
+<dialog class="notify" id="notify" aria-labelledby="notify-title">
+  <button class="notify-x" type="button" data-close aria-label="Close">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+
+  <div class="notify-step" data-step="form">
+    <img class="notify-icon" src="assets/icon-512.png" width="76" height="76" alt="">
+    <p class="eyebrow">Coming soon to iPhone</p>
+    <h2 class="notify-h" id="notify-title">Be the first to know.</h2>
+    <p class="notify-p">Crux Bible isn’t on the App Store yet. Leave your email and we’ll let you know the day it’s released.</p>
+    <form class="notify-form" novalidate>
+      <label class="sr-only" for="notify-email">Email address</label>
+      <input class="notify-input" id="notify-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" required aria-describedby="notify-error">
+      <input class="notify-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="notify-error" id="notify-error" role="alert" hidden></p>
+      <button class="btn btn-green notify-btn" type="submit">Notify me</button>
+    </form>
+    <p class="notify-fine">We’ll only use it to tell you when Crux Bible is out.</p>
+  </div>
+
+  <div class="notify-step" data-step="done" hidden>
+    <span class="notify-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <h2 class="notify-h" tabindex="-1">Thank you!</h2>
+    <p class="notify-p">We’ll send a note to <b class="notify-addr"></b> as soon as Crux Bible is released.</p>
+    <button class="btn btn-ink notify-btn" type="button" data-close>Done</button>
+  </div>
+</dialog>
 
 <footer class="footer">
   <div class="wrap foot-row">

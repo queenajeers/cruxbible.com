@@ -17,6 +17,29 @@ Plain HTML, CSS and a little JavaScript. No build step. Hosted on GitHub Pages a
 - `assets/`: icons and the share image (`og.jpg`, 1200 x 630).
 - `tools/`: `gen_image.py` / `gen_flat.sh` (OpenAI image generation, medium quality) and `prompts/flat/`.
 - `CNAME`: the custom domain.
+- `firebase/`: the Firestore rules for the launch list (below).
+
+## Launch list
+
+Until the app is on the App Store, every "Notify me at launch" button (hero, final section, the nav's "Get Crux Bible",
+the FAQ link, and the shareable link https://cruxbible.com/#notify) opens a popup that asks for an email address and
+saves it to **Cloud Firestore** in the app's Firebase project, `rebuke-visuals`.
+
+- **Where:** collection `waitlist` in the `(default)` database (location `nam5`, United States, delete protection on).
+  Each entry has `email` (trimmed, lowercased), `source` (which button: `hero`, `nav`, `final`, `faq` or `link`) and
+  `createdAt` (server time). The document id is the SHA-256 of the email, so the same address is only stored once.
+  See them at https://console.firebase.google.com/project/rebuke-visuals/firestore/databases/-default-/data/~2Fwaitlist
+- **How:** `script.js` writes through the Firestore REST API with no SDK and no API key.
+  `firebase/firestore.rules` lets the web create a `waitlist` entry of exactly that shape and nothing else: no reads,
+  no changes, no deletes, and no other collections.
+- **Rules deploy:** these are the project's only Firestore rules, so anything else that uses Firestore later must add
+  its rules to this file.
+
+```bash
+cd firebase && npx --yes firebase-tools@15.36.0 deploy --only firestore:rules --project rebuke-visuals
+```
+
+When the app is out, swap the buttons back to an App Store link and email the list.
 
 ## Run locally
 

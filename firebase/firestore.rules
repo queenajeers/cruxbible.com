@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Cloud Firestore rules for the rebuke-visuals project (Crux Bible).
+// Deployed from cruxbible.com/firebase: npx --yes firebase-tools@15.36.0 deploy --only firestore:rules
+// This is the project's ONLY ruleset: anything else that later uses Firestore must add its rules here.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // The launch list on cruxbible.com. Anyone can add an email; no one can read, change or delete one from the
+    // web. The document id is the SHA-256 of the lowercased email, so each address is stored once.
+    match /waitlist/{id} {
+      allow create: if id.matches('^[0-9a-f]{64}$')
+        && request.resource.data.keys().hasOnly(['email', 'source', 'createdAt'])
+        && request.resource.data.keys().hasAll(['email', 'source', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
+        && request.resource.data.source in ['hero', 'nav', 'final', 'faq', 'link']
+        && request.resource.data.createdAt == request.time;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
