@@ -65,4 +65,5 @@ mark, the tab icon, the Apple touch icon and `favicon.ico` from the app's icon i
 
 ## Scripture
 
-Scripture quotations are from the Berean Standard Bible (BSB), public domain.
+Scripture quotations on this site are from the Berean Standard Bible (BSB), public domain. The app itself has seven
+versions: NIV, NASB, KJV, BSB, WEB, ASV and WEB Catholic.
