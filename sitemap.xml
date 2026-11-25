@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://cruxbible.com/</loc><lastmod>2026-11-24</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://cruxbible.com/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <image:image><image:loc>https://cruxbible.com/assets/og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/lens.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/morning.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/creation.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/fall.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/flood.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/promise.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/exodus.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/sinai.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/david.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/psalms.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/daniel.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/jonah.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/birth.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/shepherd.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/cross.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/tomb.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/pentecost.webp</image:loc></image:image>
+    <image:image><image:loc>https://cruxbible.com/art/posters/newcreation.webp</image:loc></image:image>
+  </url>
 </urlset>

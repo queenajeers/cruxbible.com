@@ -131,6 +131,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(46px, 6.4vw, 86px); line-height: 1.0; letter-spacing: -0.025em;
 }
+.hero h1 .eyebrow { display: block; font-family: var(--sans); line-height: 1.4; margin-bottom: 18px; }
 .hero .lead { margin-top: 28px; font-size: clamp(18px, 1.8vw, 21px); color: var(--ink-2); max-width: 540px; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 34px; }
 .proof { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 34px; font-size: 14.5px; font-weight: 700; color: var(--muted); }

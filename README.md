@@ -41,6 +41,17 @@ cd firebase && npx --yes firebase-tools@15.36.0 deploy --only firestore:rules --
 
 When the app is out, swap the buttons back to an App Store link and email the list.
 
+## Search
+
+The page aims at two searches: **"crux bible"** (the name) and **"visual bible"**. The words sit in the `<title>`, the
+meta description, the hero `<h1>`, the lead line, the first two FAQ answers and the footer. Put them only where they
+read naturally.
+
+- `index.html`'s `<head>` holds JSON-LD structured data (`WebSite`, `Organization`, `WebPage`, `FAQPage`). The
+  `WebSite` name is what Google shows as the site name. If you change an FAQ answer, change it in the JSON-LD as well.
+- `sitemap.xml` lists the page and its images. Update `lastmod` when the page changes.
+- At launch, add a `MobileApplication` entry with the App Store link and price, and the `apple-itunes-app` meta tag.
+
 ## Run locally
 
 ```bash
