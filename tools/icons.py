@@ -5,7 +5,8 @@
 
 Writes, into assets/ (and favicon.ico at the root):
   mark-128.png        the header and footer mark, masked as iOS masks app icons
-  icon-64.png         the browser tab icon, masked
+  icon-48/96/192.png  the browser tab and search result icons, masked (Google wants a multiple of 48 px)
+  icon-64.png         an older tab icon, kept for links to it
   icon-512.png        a large masked copy (README, sharing)
   apple-touch-icon.png  180 px, square and opaque: iOS rounds it itself
   favicon.ico         16, 32 and 48 px, masked, for browsers that ask for /favicon.ico
@@ -40,7 +41,8 @@ def main():
     path = sys.argv[1] if len(sys.argv) > 1 else ICON
     icon = Image.open(path).convert('RGB')
     assets = os.path.join(SITE, 'assets')
-    for name, size in (('mark-128.png', 128), ('icon-64.png', 64), ('icon-512.png', 512)):
+    for name, size in (('mark-128.png', 128), ('icon-48.png', 48), ('icon-64.png', 64), ('icon-96.png', 96),
+                       ('icon-192.png', 192), ('icon-512.png', 512)):
         masked(icon, size).save(os.path.join(assets, name), optimize=True)
     icon.resize((180, 180), Image.LANCZOS).save(os.path.join(assets, 'apple-touch-icon.png'), optimize=True)
     masked(icon, 48).save(os.path.join(SITE, 'favicon.ico'), sizes=[(16, 16), (32, 32), (48, 48)])

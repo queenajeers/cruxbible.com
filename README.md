@@ -50,6 +50,8 @@ read naturally.
 - `index.html`'s `<head>` holds JSON-LD structured data (`WebSite`, `Organization`, `WebPage`, `FAQPage`). The
   `WebSite` name is what Google shows as the site name. If you change an FAQ answer, change it in the JSON-LD as well.
 - `sitemap.xml` lists the page and its images. Update `lastmod` when the page changes.
+- Icons: `/favicon.ico` (16, 32, 48) and `assets/icon-48/96/192.png`, linked in the `<head>` and in `site.webmanifest`.
+  Google's results only take a square icon whose side is a multiple of 48 px; keep those URLs stable.
 - At launch, add a `MobileApplication` entry with the App Store link and price, and the `apple-itunes-app` meta tag.
 
 ## Run locally
@@ -71,7 +73,7 @@ The app's own, self-hosted (no Google Fonts request):
   are in `assets/fonts/`.
 
 `python3 tools/fonts.py` rebuilds the WOFF2 files (needs fontTools and brotli); `python3 tools/icons.py` rebuilds the
-mark, the tab icon, the Apple touch icon and `favicon.ico` from the app's icon in Xcode
+mark, the tab icons (48, 64, 96, 192), the Apple touch icon and `favicon.ico` from the app's icon in Xcode
 (`Rebuke/Assets.xcassets/AppIcon.appiconset/icon.png`).
 
 ## Scripture
